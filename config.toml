@@ -1,14 +1,16 @@
 # The URL the site will be built for
 base_url = "https://commentari.dev/"
+title = "Commentari"
+theme = "anemone"
+author = "Mila Page"
 
 # Whether to automatically compile all Sass files in the sass directory
 compile_sass = false
 
 # Whether to build a search index to be used later on by a JavaScript library
 build_search_index = true
-theme = "anemone"
+generate_feed = true
 
-author = "Mila Page"
 
 [markdown]
 # Whether to do syntax highlighting
@@ -20,3 +22,13 @@ highlight_code = true
 list_pages = true
 toc = true
 display_author = true
+
+header_nav = [
+  { name = "Home",  url = "/" },
+  { name = "Posts", url = "/posts/" },
+]
+
+footer_nav = [
+  { name = "linkedin", url = "https://www.linkedin.com/in/mila-page" },
+  { name = "rss",      url = "/atom.xml" },
+]
