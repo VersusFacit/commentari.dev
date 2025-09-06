@@ -1,0 +1,49 @@
+---
+name: Build and deploy Zola site to GitHub Pages
+
+"on":
+  # run publish job when push to branch occurs
+  push:
+    branches: ["release"]
+
+  # manual dispatch hook for Actions tab
+  workflow_dispatch:
+
+permissions:
+  contents: write  # commit permissions
+
+concurrency:
+  group: "pages-deploy"
+  # accept only latest job
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          submodules: true
+          # full history (helps some themes and zola lastmod)
+          fetch-depth: 0
+
+      # (Optional) Cache Zola build artifacts to speed up repeated builds
+      - name: Cache Zola public output
+        uses: actions/cache@v4
+        with:
+          path: public
+          key: zola-public-${{ github.sha }}
+          restore-keys: |
+            zola-public-
+
+      # Build & deploy in one step using a purpose-built action for Zola
+      - name: Build and deploy
+        uses: shalzz/zola-deploy-action@master
+        env:
+          # where your config.toml and asset directories live
+          BUILD_DIR: .
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # output branch GitHub Pages will serve
+          PAGES_BRANCH: gh-pages
