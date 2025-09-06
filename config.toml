@@ -9,13 +9,17 @@ compile_sass = false
 
 # Whether to build a search index to be used later on by a JavaScript library
 build_search_index = true
-generate_feed = true
-
+generate_feeds = true
+generate_robots_txt = true
+default_language = "en"
+minify_html = false
+feed_filenames = ["atom.xml"]
 
 [markdown]
 # Whether to do syntax highlighting
 # Theme can be customised by setting the `highlight_theme` variable to a theme supported by Zola
 highlight_code = true
+render_emoji = true
 
 [extra]
 # Put all your custom variables here
@@ -24,11 +28,11 @@ toc = true
 display_author = true
 
 header_nav = [
-  { name = "Home",  url = "/" },
-  { name = "Posts", url = "/posts/" },
+  { name_en = "Home",  url = "/" },
+  { name_en = "Posts", url = "/posts/" },
 ]
 
 footer_nav = [
-  { name = "linkedin", url = "https://www.linkedin.com/in/mila-page" },
-  { name = "rss",      url = "/atom.xml" },
+  { name_en = "linkedin", url = "https://www.linkedin.com/in/mila-page" },
+  { name_en = "rss",      url = "/atom.xml" },
 ]
