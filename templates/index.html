@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <style>
+    /* Laurel via mask (single asset), responsive box */
+    .laurel-crest{
+      width: clamp(150px, 30vw, 600px);
+      height: clamp(150px, 30vw, 600px);
+      margin: 0 auto 1rem;
+
+      /* color of the laurel (works like 'fill') */
+      --laurel-color: #000;
+
+      /* paint color, then cut shape with the SVG as a mask */
+      background-color: var(--laurel-color);
+      -webkit-mask: url('{{ get_url(path="laurels.svg", cachebust=true) }}') center / contain no-repeat;
+      mask: url('{{ get_url(path="laurels.svg", cachebust=true) }}') center / contain no-repeat;
+    }
+
+    /* very soft white in dark mode (~10% intensity) */
+    @media (prefers-color-scheme: dark){
+      .laurel-crest{ --laurel-color: rgba(255,255,255,0.40); }
+    }
+    [data-theme="dark"] .laurel-crest{
+      --laurel-color: rgba(255,255,255,0.40);
+    }
+  </style>
+
+  <section style="margin: 2rem 0 2.5rem;">
+    <h1 style="margin: 0 0 .25rem 0;">{{ section.title }}</h1>
+    <p style="margin: .5rem 0 0 0; font-size: 1.05rem; line-height: 1.6;">
+      {{ section.content | safe }}
+    </p>
+    <div class="laurel-crest" aria-hidden="true"></div>
+  </section>
+
+  {# Latest posts (no pagination on the home). Adjust count as you like. #}
+  {% set posts = get_section(path="posts/_index.md") %}
+  {% if posts and posts.pages | length > 0 %}
+    <section aria-labelledby="latest">
+      <h2 id="latest" style="margin: 0 0 .75rem 0;">Latest</h2>
+      <ul style="list-style: none; padding: 0; margin: 0;">
+        {% for p in posts.pages | slice(end=5) %}
+          <li style="margin: 0 0 1rem 0;">
+            <a href="{{ p.permalink }}" style="font-weight: 600; text-decoration: none;">
+              {{ p.title }}
+            </a>
+            {% if p.date %}<div style="font-size: .9rem; opacity: .7;">{{ p.date | date(format="%Y-%m-%d") }}</div>{% endif %}
+
+            {% if p.summary %}
+              <p style="margin: .35rem 0 0 0;">{{ p.summary | safe }}</p>
+            {% elif p.description %}
+              <p style="margin: .35rem 0 0 0;">{{ p.description }}</p>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+
+      {% if posts.pages | length > 5 %}
+        <p style="margin-top: 1rem;"><a href="/posts/">All posts →</a></p>
+      {% endif %}
+    </section>
+  {% endif %}
+{% endblock content %}

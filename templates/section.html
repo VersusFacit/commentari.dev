@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>{{ section.title }}</h1>
+
+  {% if paginator %}
+    <ul style="list-style:none; padding:0;">
+      {% for p in paginator.pages %}
+        <li style="margin: 0 0 1rem 0;">
+          <a href="{{ p.permalink }}" style="font-weight:600; text-decoration:none;">
+            {{ p.title }}
+          </a>
+          {% if p.date %}<div style="font-size:.9rem; opacity:.7;">{{ p.date | date(format="%Y-%m-%d") }}</div>{% endif %}
+          {% if p.summary %}<p style="margin:.35rem 0 0 0;">{{ p.summary | safe }}</p>{% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+
+    {# Only show pager if needed #}
+    {% if paginator.number_pagers > 1 %}
+      <nav style="display:flex; gap:1rem;">
+        {% if paginator.previous %}<a href="{{ paginator.previous }}">← Newer</a>{% endif %}
+        {% if paginator.next %}<a href="{{ paginator.next }}">Older →</a>{% endif %}
+      </nav>
+    {% endif %}
+  {% else %}
+    <p>No posts yet.</p>
+  {% endif %}
+{% endblock content %}
