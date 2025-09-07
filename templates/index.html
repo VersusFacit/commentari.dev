@@ -7,22 +7,13 @@
       width: clamp(150px, 30vw, 600px);
       height: clamp(150px, 30vw, 600px);
       margin: 0 auto 1rem;
-
-      /* color of the laurel (works like 'fill') */
-      --laurel-color: #000;
-
-      /* paint color, then cut shape with the SVG as a mask */
-      background-color: var(--laurel-color);
-      -webkit-mask: url('{{ get_url(path="laurels.svg", cachebust=true) }}') center / contain no-repeat;
-      mask: url('{{ get_url(path="laurels.svg", cachebust=true) }}') center / contain no-repeat;
+      background-image: url('{{ get_url(path="laurels-black.svg", cachebust=true) }}');
+      background-repeat: no-repeat;
+      background-position: center;
+      opacity: 0.75;
     }
-
-    /* very soft white in dark mode (~10% intensity) */
-    @media (prefers-color-scheme: dark){
-      .laurel-crest{ --laurel-color: rgba(255,255,255,0.40); }
-    }
-    [data-theme="dark"] .laurel-crest{
-      --laurel-color: rgba(255,255,255,0.40);
+    :root[data-theme="dark"] .laurel-crest{
+      filter: invert(0.75);
     }
   </style>
 
