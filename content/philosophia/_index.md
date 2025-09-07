@@ -1,5 +1,5 @@
 +++
-title = "Posts"
+title = "Philosophia"
 sort_by = "date"
 paginate_by = 10
 +++

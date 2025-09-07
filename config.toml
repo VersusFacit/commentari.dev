@@ -29,7 +29,9 @@ display_author = true
 
 header_nav = [
   { name_en = "Home",  url = "/" },
-  { name_en = "Posts", url = "/posts/" },
+  { name_en = "Software", url = "/software/" },
+  { name_en = "Maths", url = "/maths/" },
+  { name_en = "Philosophia", url = "/philosophia/" },
 ]
 
 footer_nav = [
