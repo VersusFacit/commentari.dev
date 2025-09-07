@@ -14,6 +14,18 @@
         <link rel="stylesheet" href="https://raw.githack.com/Speyll/suCSS/main/suCSS-min.css" crossorigin="anonymous">
         <link rel="stylesheet" href="{{ get_url(path='css/style.css') }}">
         <link rel="stylesheet" href="{{ get_url(path='css/custom.css') }}">
+	<style>
+        pre {
+          max-height: none;       /* don't clip vertically */
+          overflow-y: visible;    /* no vertical scrollbar */
+          overflow-x: auto;       /* allow horizontal scroll if needed */
+          white-space: pre;       /* preserve spacing, don't wrap lines */
+        }
+
+        pre code {
+          white-space: inherit;   /* keep same handling inside <code> */
+        }
+	</style>
 
         <!-- Add favicon with appropriate sizes -->
         <link rel="icon" href="{{ config.base_url }}/{{ config.extra.favicon | default(value='favicon.ico') }}">

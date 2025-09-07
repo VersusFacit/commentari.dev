@@ -21,6 +21,9 @@ feed_filenames = ["atom.xml"]
 highlight_code = true
 render_emoji = true
 
+[markdown.highlight]
+line_numbers = true
+
 [extra]
 # Put all your custom variables here
 list_pages = true
