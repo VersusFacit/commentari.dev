@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="robots" content="index, follow">
+        
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="https://commentari.dev/rss.xml">
+        
+        <title>Commentari</title>
+
+        <link rel="preload" href="https://commentari.dev/css/style.css" as="style">
+        <link rel="stylesheet" href="https://raw.githack.com/Speyll/suCSS/main/reset-min.css" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://raw.githack.com/Speyll/suCSS/main/suCSS-min.css" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://commentari.dev/css/style.css">
+        <link rel="stylesheet" href="https://commentari.dev/css/custom.css">
+	<style>
+        pre {
+          max-height: none;       /* don't clip vertically */
+          overflow-y: visible;    /* no vertical scrollbar */
+          overflow-x: auto;       /* allow horizontal scroll if needed */
+          white-space: pre;       /* preserve spacing, don't wrap lines */
+        }
+
+        pre code {
+          white-space: inherit;   /* keep same handling inside <code> */
+        }
+	</style>
+
+        <!-- Add favicon with appropriate sizes -->
+        <link rel="icon" href="https:&#x2F;&#x2F;commentari.dev&#x2F;/favicon.ico">
+        
+    </head>
+    <body>
+        
+        
+        
+        
+	<nav id="nav-bar" style="gap:0.65rem;">
+            
+            <a href="&#x2F;" class="">
+                
+                Home
+            </a>
+            
+            <a href="&#x2F;software&#x2F;" class="">
+                
+                Software
+            </a>
+            
+            <a href="&#x2F;maths&#x2F;" class="">
+                
+                Maths
+            </a>
+            
+            <a href="&#x2F;philosophia&#x2F;" class="">
+                
+                Philosophia
+            </a>
+            
+
+            <div class="theme-toggle" id="theme-toggle" role="button" tabindex="0" aria-label="Toggle theme"
+                data-icon-base="https://commentari.dev/icons.svg"
+                data-icon-dark="#darkMode"
+                data-icon-light="#lightMode"
+                data-sound-src="https://commentari.dev/click.ogg">
+                <svg class="icon">
+                    <use id="theme-icon"></use>
+                </svg>
+            </div>
+        </nav>
+
+        <main>
+            
+  <style>
+    /* Laurel via mask (single asset), responsive box */
+    .laurel-crest{
+      width: clamp(150px, 30vw, 600px);
+      height: clamp(150px, 30vw, 600px);
+      margin: 0 auto 1rem;
+      background-image: url('https://commentari.dev/laurels-black.svg?h=522bdba9ef53034e511b');
+      background-repeat: no-repeat;
+      background-position: center;
+      opacity: 0.75;
+    }
+    :root[data-theme="dark"] .laurel-crest{
+      filter: invert(0.75);
+    }
+  </style>
+
+  <section style="margin: 2rem 0 2.5rem;">
+    <h1 style="margin: 0 0 .25rem 0;">Commentari</h1>
+    <p style="margin: .5rem 0 0 0; font-size: 1.05rem; line-height: 1.6;">
+      <p>Commentari comes from the Latin deponent verb commentārī: to think carefully, to meditate, to sketch in words. In the spirit of the pre-SEO internet, a time in which static how-to pages were at the forefront of knowledge exchange, this site is not for publishing grand treatises but for developing ideas in public.</p>
+<p>My technical life is in Rust and Go, increasingly working at the seams where languages, FFIs, and libraries like Arrow meet. I had the privilege to build dbt Core for 3 years and now work full-time on the dbt Fusion engine.</p>
+<p>I often delve into mathematical logic, natural languages modern and ancient, and the ethics of Socratic and Hellenistic thinkers — threads from my college years that continue to weave through my life.</p>
+
+    </p>
+    <div class="laurel-crest" aria-hidden="true"></div>
+  </section>
+
+  
+  
+  
+  
+  
+
+  
+  
+  
+
+  
+  
+
+  
+    <section aria-labelledby="latest">
+      <h2 id="latest" style="margin: 0 0 .75rem 0;">Latest</h2>
+      <ul style="list-style: none; padding: 0; margin: 0;">
+        
+          <li style="margin: 0 0 1rem 0;">
+            <a href="https:&#x2F;&#x2F;commentari.dev&#x2F;software&#x2F;getting-started-arrow&#x2F;" style="font-weight: 600; text-decoration: none;">
+              A first foray into Arrow (Part 1: Python)
+            </a>
+            
+              <div style="font-size: .9rem; opacity: .7;">
+                2025-09-07
+              </div>
+            
+
+            
+              <p style="margin: .35rem 0 0 0;">A wandering through what Arrow is with real code. First, a look at Arrow from on-high, using PyArrow.</p>
+            
+          </li>
+        
+      </ul>
+
+      
+    </section>
+  
+
+        </main>
+
+        <footer>
+            <hr>
+<div id="footer-container">
+    <p>Made using <a target="_blank" rel="noopener noreferrer" href="https://github.com/Speyll/anemone">anemone</a> Zola theme</p>
+</div>
+
+        </footer>
+
+        <!-- Move JS to end of body and add defer -->
+        <script src="https://commentari.dev/js/script.js" defer></script>
+    </body>
+</html>
