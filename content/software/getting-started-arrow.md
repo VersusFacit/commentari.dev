@@ -319,9 +319,9 @@ values buffer (contiguous int64):
 
 An Arrow Array is not a literal array of values. It is a descriptor: buffers plus metadata like length, offset, and type. When you iterate or slice, Arrow does not have to touch or copy values. The underlying values stay in place. The buffers do not move.
 
-Row-oriented systems are heavier. Each row's fields sit side by side in memory. To pull out a column, you must allocate a new buffer. Then, you walk every row, fetch the field, and copy it. With larger data you may need arrays of pointers. If the row count is unknown, the buffer may overflow and must grow. That means dynamic reallocations and more copying.<sup>[6]</sup>
+Row-oriented systems are heavier. Each row's fields sit side by side in memory. To pull out a column, you must allocate a new buffer. Then, you walk every row, fetch the field, and copy it. With larger data you may need arrays of pointers. If the row count is unknown, the buffer may overflow and must grow. That means dynamic reallocations and more copying.<sup>[7]</sup>
 
-#### grab a row {#subc}
+#### grab a (one) row (table view) {#subc}
 ```python
 print(table.slice(1))
 ```
